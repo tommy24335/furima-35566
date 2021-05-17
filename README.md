@@ -42,7 +42,7 @@
 ### アソシエーション
 - belongs_to :user
 - belongs_to :item
-- has_one :sipping_addresses
+- has_one :sipping_address
 
 
 
