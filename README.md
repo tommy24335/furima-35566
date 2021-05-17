@@ -15,22 +15,22 @@
 
 ### アソシエーション
 - has_many :items
-- has_one :purchase_management
+- has_many :purchase_managements
 
 ## sipping_addresses テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| address          | string     | null: false                    |
-| building_name    | string     |                                |
-| city             | string     | null: false                    |
-| prefecture_id    | integer    | null: false                    |
-| postal_code      | string     | null: false                    |
-| phone_number     | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| address             | string     | null: false                    |
+| building_name       | string     |                                |
+| city                | string     | null: false                    |
+| prefecture_id       | integer    | null: false                    |
+| postal_code         | string     | null: false                    |
+| phone_number        | string     | null: false                    |
+| purchase_management | references | null: false, foreign_key: true |
 
 ### アソシエーション
-- has_one :purchase_management
+- belongs_to :purchase_management
 
 ## purchase_managements テーブル
 
@@ -42,7 +42,7 @@
 ### アソシエーション
 - belongs_to :user
 - belongs_to :item
-- belongs_to :sipping_addresses
+- has_one :sipping_addresses
 
 
 
@@ -54,7 +54,7 @@
 | price            | integer    | null: false                    |
 | description      | text       | null: false                    |
 | sipping_cost_id  | integer    | null: false                    |
-| sipping_days_id  | integer    | null: false                    |
+| sipping_day_id   | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 | category_id      | integer    | null: false                    |
