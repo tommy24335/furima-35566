@@ -7,13 +7,13 @@
                 <mxCell id="47" value="user" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;verticalAlign=middle;" vertex="1" parent="1">
                     <mxGeometry x="30" y="40" width="160" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="nickname&#10;email&#10;password&#10;family_name&#10;last_name&#10;family_name_kana&#10;last_name_kana&#10;birth_day" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="47">
+                <mxCell id="48" value="nickname&#10;email&#10;encrypted_password&#10;family_name&#10;last_name&#10;family_name_kana&#10;last_name_kana&#10;birth_day" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="47">
                     <mxGeometry y="30" width="160" height="170" as="geometry"/>
                 </mxCell>
                 <mxCell id="52" value="item" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
                     <mxGeometry x="340" y="40" width="300" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="name&#10;price&#10;description&#10;sipping_cost_id&#10;shipping_area_id&#10;sipping_day_id&#10;prefecture_id&#10;user_id&#10;category_id&#10;item_status_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="52">
+                <mxCell id="53" value="name&#10;price&#10;description&#10;sipping_cost_id&#10;sipping_day_id&#10;prefecture_id&#10;user&#10;category_id&#10;item_status_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="52">
                     <mxGeometry y="30" width="300" height="170" as="geometry"/>
                 </mxCell>
                 <mxCell id="55" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERone;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startFill=0;endFill=0;" edge="1" parent="1" source="48" target="53">

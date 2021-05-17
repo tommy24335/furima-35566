@@ -15,13 +15,14 @@
 
 ### アソシエーション
 - has_many :items
+- has_one :purchase_management
 
 ## sipping_addresses テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | address          | string     | null: false                    |
-| building_name    | string     | null: false                    |
+| building_name    | string     |                                |
 | city             | string     | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | postal_code      | string     | null: false                    |
@@ -35,10 +36,11 @@
 
 | Column           | Type   | Options                            |
 | ---------------- | ------ | -----------------------------------|
-| user          | references | null: false, foreign_key: true |
-| item          | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
 ### アソシエーション
+- belongs_to :user
 - belongs_to :item
 - belongs_to :sipping_addresses
 
@@ -52,7 +54,6 @@
 | price            | integer    | null: false                    |
 | description      | text       | null: false                    |
 | sipping_cost_id  | integer    | null: false                    |
-| sipping_area_id  | integer    | null: false                    |
 | sipping_days_id  | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
