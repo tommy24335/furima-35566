@@ -155,7 +155,7 @@
         <% end %>
         <% end %>
       </li>
-
+      <%# 出品商品がない場合のダミー画像 %>
       <% if @items.length == 0 %>
       <li class='list'>
         <%= link_to '#' do %>
@@ -176,6 +176,7 @@
       </li>
       <% end %>    </ul>
   </div>
+  <%# /出品商品がない場合のダミー画像 %>
   <%# /商品一覧 %>
 </div>
 <%= link_to(new_item_path, class: 'purchase-btn') do %>
