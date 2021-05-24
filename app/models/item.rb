@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :sipping_day
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :description
     with_options numericality: { other_than: 0 } do
