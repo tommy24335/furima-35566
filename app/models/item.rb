@@ -24,11 +24,11 @@ class Item < ApplicationRecord
   validates :image
   validates :name
   validates :description
-  validates :sipping_cost_id
-  validates :sipping_day_id
-  validates :prefecture_id
-  validates :category_id
-  validates :item_status_id
+  validates :sipping_cost_id, numericality: { other_than: 0 } 
+  validates :sipping_day_id, numericality: { other_than: 0 } 
+  validates :prefecture_id, numericality: { other_than: 0 } 
+  validates :category_id, numericality: { other_than: 0 } 
+  validates :item_status_id, numericality: { other_than: 0 } 
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: ' is out of setting range'}
  end
