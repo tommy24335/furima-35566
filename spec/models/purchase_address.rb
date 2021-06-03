@@ -18,7 +18,7 @@ RSpec.describe PurchaseAddress, type: :model do
     end
   end
 
-  describe '商品が購入できない時' do
+  describe '購入できない時' do
     it '紐づくuserがいないと保存できないこと' do
       @purchase_address.user_id = nil
       @purchase_address.valid?
@@ -71,6 +71,11 @@ RSpec.describe PurchaseAddress, type: :model do
     end
     it '電話番号が11桁を超えると保存できない' do
       @purchase_address.phone_number = '080123456789'
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include 'Phone number Input only number'
+    end
+    it '電話番号が9桁以下だと保存できない' do
+      @purchase_address.phone_number = '080123456'
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include 'Phone number Input only number'
     end

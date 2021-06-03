@@ -51,7 +51,7 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  describe '商品が出品できない時' do
+  describe '出品できない時' do
     it '商品画像が一枚付いていなければ出品できない' do
       @item.image = nil
       @item.valid?

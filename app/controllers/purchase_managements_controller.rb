@@ -18,19 +18,20 @@ class PurchaseManagementsController < ApplicationController
     end
   end
 
-  def set_item
-    @item = Item.find(params[:item_id])
-  end
-
+  
   private
-
+  
   def purchase_address_params
     params.require(:purchase_address).permit(:address, :city, :building_name, :prefecture_id, :postal_code, :phone_number)
     .merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
-
+  
   def move_to_root_path
     redirect_to root_path if current_user.id == @item.user_id || @item.purchase_management.present?
+  end
+  
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item
