@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_092059) do
+ActiveRecord::Schema.define(version: 2021_05_26_091637) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,28 @@ ActiveRecord::Schema.define(version: 2021_05_20_092059) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "purchase_managements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_purchase_managements_on_item_id"
+    t.index ["user_id"], name: "index_purchase_managements_on_user_id"
+  end
+
+  create_table "sipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "address", default: "", null: false
+    t.string "building_name"
+    t.string "city", default: "", null: false
+    t.string "prefecture_id", null: false
+    t.string "postal_code", default: "", null: false
+    t.string "phone_number", default: "", null: false
+    t.bigint "purchase_management_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purchase_management_id"], name: "index_sipping_addresses_on_purchase_management_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
@@ -68,4 +90,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_092059) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "users"
+  add_foreign_key "purchase_managements", "items"
+  add_foreign_key "purchase_managements", "users"
+  add_foreign_key "sipping_addresses", "purchase_managements"
 end

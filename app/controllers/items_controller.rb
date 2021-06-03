@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!,    except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :not_access, only: [:edit, :update, :destroy]
 
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   end
 
   def not_access
-    redirect_to root_path unless current_user.id == @item.user_id
+    redirect_to root_path unless current_user.id == @item.user_id && @item.purchase_management.nil
   end
 
   private
