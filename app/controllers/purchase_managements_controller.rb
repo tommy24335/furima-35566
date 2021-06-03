@@ -25,9 +25,8 @@ class PurchaseManagementsController < ApplicationController
   private
 
   def purchase_address_params
-    params.require(:purchase_address).permit(:address, :city, :building_name, :prefecture_id, :postal_code, :phone_number).merge(
-      user_id: current_user.id, item_id: params[:item_id], token: params[:token]
-    )
+    params.require(:purchase_address).permit(:address, :city, :building_name, :prefecture_id, :postal_code, :phone_number)
+    .merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def move_to_root_path
@@ -35,11 +34,11 @@ class PurchaseManagementsController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
-      card: purchase_address_params[:token], # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      card: purchase_address_params[:token], 
+      currency: 'jpy'                 
     )
   end
 end

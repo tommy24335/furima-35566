@@ -16,7 +16,7 @@ class PurchaseAddress
 
   def save
     purchase_management = PurchaseManagement.create(user_id: user_id, item_id: item_id)
-    SippingAddress.create(address: address, city: city, building_name: building_name, prefecture_id: prefecture_id,
+    sipping_address = SippingAddress.create(address: address, city: city, building_name: building_name, prefecture_id: prefecture_id,
                           postal_code: postal_code, phone_number: phone_number, purchase_management_id: purchase_management.id)
   end
 end
